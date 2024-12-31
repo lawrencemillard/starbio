@@ -58,7 +58,8 @@ export function useLanyard(userId: string) {
         setTimeout(connect, 5000);
       };
 
-      ws.onerror = () => {
+      ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
         ws.close();
       };
     };
