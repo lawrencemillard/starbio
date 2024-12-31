@@ -13,6 +13,10 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ imageUrl, frameUrl, status 
       case 'online': return 'border-green-500';
       case 'idle': return 'border-yellow-500';
       case 'dnd': return 'border-red-500';
+      case 'invisible': return 'border-gray-500';
+      case 'unknown': return 'border-gray-500';
+      case 'streaming': return 'border-gray-500';
+      case 'offline': return 'border-gray-500';
       default: return 'border-gray-500';
     }
   };
