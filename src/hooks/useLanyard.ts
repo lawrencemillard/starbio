@@ -57,6 +57,10 @@ export function useLanyard(userId: string) {
         // Attempt to reconnect after 5 seconds
         setTimeout(connect, 5000);
       };
+
+      ws.onerror = () => {
+        ws.close();
+      };
     };
 
     connect();
