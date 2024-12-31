@@ -31,14 +31,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUrl }) => {
       } else {
         audioRef.current.play();
       }
-      setIsPlaying(!isPlaying);
+      setIsPlaying(prev => !prev);
     }
   };
 
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+      setIsMuted(prev => !prev);
     }
   };
 

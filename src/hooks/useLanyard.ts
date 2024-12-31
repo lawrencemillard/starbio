@@ -58,7 +58,7 @@ export function useLanyard(userId: string) {
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data) as LanyardResponse;
         if (data.t === 'INIT_STATE' || data.t === 'PRESENCE_UPDATE') {
-          setStatus(data.d);
+          setStatus(prevStatus => ({ ...prevStatus, ...data.d }));
         }
       };
 
