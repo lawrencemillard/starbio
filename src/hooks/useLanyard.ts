@@ -27,16 +27,6 @@ export function useLanyard(userId: string) {
     let ws: WebSocket;
     let heartbeat: NodeJS.Timeout;
 
-    const fetchInitialStatus = async () => {
-      try {
-        const response = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-        const data = await response.json();
-        setStatus(data.data);
-      } catch (error) {
-        console.error('Failed to fetch initial status:', error);
-      }
-    };
-
     const connect = () => {
       ws = new WebSocket('wss://api.lanyard.rest/socket');
 
@@ -74,7 +64,6 @@ export function useLanyard(userId: string) {
       };
     };
 
-    fetchInitialStatus();
     connect();
 
     return () => {
